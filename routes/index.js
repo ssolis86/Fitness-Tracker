@@ -1,12 +1,10 @@
 const router = require('express').Router();
-const apiRoutes = require('./api/index');
-const publicRoutes = require('./public');
+const apiRoutes = require('./api');
+const homeRoutes = require('./homeRoutes');
 
-router.use('/', publicRoutes);
-// router.use('/api', apiRoutes);
-
-router.use((req, res) => {
-  res.send('<h1>Wrong Route!</h1>')
-});
+// Use for localhost:3000/
+router.use('/', homeRoutes);
+// Use for localhost:3000/api
+router.use('/api', apiRoutes);
 
 module.exports = router;
