@@ -44,5 +44,33 @@ router.get('/range', (req, res) => {
         })
 });
 
+// POST New workout
+// Use for localhost:3000/api/workouts
+router.post('', (req, res) => {
+    Workout.create(req.body)
+    .then(data => {
+        res.json(data);
+    })
+    .catch(err => {
+        res.status(400).json(err);
+    })
+})
+
+// PUT Existing workout
+// Use for localhost:3000/api/workouts/:id
+router.put('/:id', (req, res) => {
+    Workout.findByIdAndUpdate(
+        req.params.id, {
+            $push: {
+                exercises: req.body
+            }
+        }
+    )
+    .then(workout => {
+        res.json(workout)
+    }) .catch(error => {
+        res.json(error)
+    })
+});
 
 module.exports = router;
