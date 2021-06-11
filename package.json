@@ -10,6 +10,10 @@
     "watch": "nodemon server.js",
     "seed": "node seeders/seed.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://git.heroku.com/orm-ecommerce-back-end.git"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
