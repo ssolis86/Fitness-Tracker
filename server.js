@@ -1,12 +1,11 @@
 const express = require("express");
 const app = express();
-const logger = require("morgan");
 const mongoose = require("mongoose");
 const compression = require("compression");
 //Local host listening on PORT 3000
 const PORT = 3000;
 
-app.use(logger("dev"));
+
 app.use(compression());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
