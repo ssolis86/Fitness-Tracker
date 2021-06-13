@@ -1,15 +1,15 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-const compression = require("compression");
+
 
 const PORT = process.env.PORT || 3000;
 
 
-app.use(compression());
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static("public"));
+
 
 //Connection to database
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
